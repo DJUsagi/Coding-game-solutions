@@ -34,7 +34,7 @@ class Player {
             trucks[i] = new Truck(i);
         }
         
-        BoxSort sorter = new BoxSort(); //
+        // Not needed in this implimentation BoxSort sorter = new BoxSort(); 
         boolean done = false;
         Arrays.sort(boxes); //sorts by weight
         int loopCount = 0;
@@ -167,6 +167,7 @@ class Player {
                 if( delta < 0.3) //JACKPOT!
                 {
                     System.err.println("JACKPOT");
+                    done = true; //kept from old code, just in case I change the nesting..
                     break;
                 }
             }
@@ -174,6 +175,7 @@ class Player {
             elapsedTime = System.currentTimeMillis() - startTime;
             if(elapsedTime > 48000)
             {
+               done = true; // same, not technically needed, but if i change the nesting it will be
                break; 
             }
         }
@@ -349,6 +351,7 @@ class Box implements Comparable<Box>
 }
 
 // Quicksort
+/* OLD CODE. KEPT FOR REFERENCE
 class BoxSort
 {
     int partition(Box arr[], int low, int high)
@@ -384,8 +387,8 @@ class BoxSort
     {
         if (low < high)
         {
-            /* pi is partitioning index, arr[pi] is 
-              now at right place */
+            // pi is partitioning index, arr[pi] is 
+            //  now at right place 
             int pi = partition(arr, low, high);
  
             // Recursively sort elements before
@@ -395,3 +398,4 @@ class BoxSort
         }
     }
 }
+*/
